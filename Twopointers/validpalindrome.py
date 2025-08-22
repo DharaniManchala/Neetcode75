@@ -1,21 +1,14 @@
-def isPalindrome(s: str) -> bool:
-    l, r = 0, len(s) - 1
-    while l < r:
-        while l < r and not s[l].isalnum():
-            l += 1
-        while l < r and not s[r].isalnum():
-            r -= 1
-        if l < r and s[l].lower() != s[r].lower():
+def is_palindrome(str):
+    left,right=0,len(str)-1
+    while left<right:
+        while left<right and not str[left].isalnum():
+            left+=1
+        while left<right and not str[right].isalnum():
+            right-=1
+        if str[left].lower()!=str[right].lower():
             return False
-        l += 1
-        r -= 1
+        left=left+1
+        right=right-1
     return True
-
-# quick tests
-tests = [
-    "A man, a plan, a canal: Panama",
-    "race a car",
-    ".,,",
-    "No 'x' in Nixon"
-]
-print([isPalindrome(t) for t in tests])
+# timecompexity: O(n)
+# spacecompexity: O(1)
